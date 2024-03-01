@@ -7,8 +7,8 @@ export const locators = {
     }
 };
 
-export async function login(page:Page, username: string, password: string) {
-    await page.fill('[name="username"]',username);
+export async function login(page:Page, userName, password) {
+    await page.fill('[name="username"]',userName);
       await page.fill('[name="password"]',password);
       await page.click('[type="submit"]');
       await page.waitForLoadState();
