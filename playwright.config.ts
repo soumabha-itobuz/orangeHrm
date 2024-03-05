@@ -2,6 +2,7 @@ import { defineConfig, devices } from '@playwright/test';
 import dotenv from 'dotenv';
 
 dotenv.config();
+
 /**
  * Read environment variables from file.
  * https://github.com/motdotla/dotenv
@@ -36,7 +37,7 @@ export default defineConfig({
   projects: [
     {
       name: 'chromium',
-      use: { ...devices['Desktop Chrome'], headless: false },
+      use: { ...devices['Desktop Chrome'], headless:false },
     },
 
     {
