@@ -1,0 +1,84 @@
+<testsuites id="" name="" tests="3" failures="1" skipped="0" errors="0" time="1794.893257">
+<testsuite name="login-page.spec.ts" timestamp="2024-03-06T13:19:11.639Z" hostname="chromium" tests="1" failures="0" skipped="0" time="13.969" errors="0">
+<testcase name="Login page › Log in to the application" classname="login-page.spec.ts" time="13.969">
+</testcase>
+</testsuite>
+<testsuite name="vacancy-page.spec.ts" timestamp="2024-03-06T13:19:11.639Z" hostname="chromium" tests="2" failures="1" skipped="0" time="1776.789" errors="0">
+<testcase name="Login page › Log in to the application" classname="vacancy-page.spec.ts" time="16.275">
+</testcase>
+<testcase name="Login page › Go to recruitment page " classname="vacancy-page.spec.ts" time="1760.514">
+<failure message="vacancy-page.spec.ts:13:9 Go to recruitment page " type="FAILURE">
+<![CDATA[  [chromium] › vacancy-page.spec.ts:13:9 › Login page › Go to recruitment page  ────────────────────
+
+    Test timeout of 300000ms exceeded.
+
+    Error: page.click: Test timeout of 300000ms exceeded.
+    Call log:
+      - waiting for locator('ul  li:nth-child(5)  a  span')
+
+
+      12 |
+      13 |     test('Go to recruitment page ',async ({ page }) => {
+    > 14 |         await page.click('ul  li:nth-child(5)  a  span');  
+         |                    ^
+      15 |         await page.click('nav > ul > li:nth-child(2) > a');
+      16 |         await page.click('div.orangehrm-header-container button');
+      17 |     });
+
+        at /Users/soumabha/dev-2/orange-hrm/orangeHrm/src/spec/vacancy-page.spec.ts:14:20
+
+    Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Test timeout of 300000ms exceeded.
+
+    Error: page.click: Test timeout of 300000ms exceeded.
+    Call log:
+      - waiting for locator('ul  li:nth-child(5)  a  span')
+
+
+      12 |
+      13 |     test('Go to recruitment page ',async ({ page }) => {
+    > 14 |         await page.click('ul  li:nth-child(5)  a  span');  
+         |                    ^
+      15 |         await page.click('nav > ul > li:nth-child(2) > a');
+      16 |         await page.click('div.orangehrm-header-container button');
+      17 |     });
+
+        at /Users/soumabha/dev-2/orange-hrm/orangeHrm/src/spec/vacancy-page.spec.ts:14:20
+
+    attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results/vacancy-page-Login-page-Go-to-recruitment-page--chromium-retry1/trace.zip
+    Usage:
+
+        npx playwright show-trace test-results/vacancy-page-Login-page-Go-to-recruitment-page--chromium-retry1/trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Retry #2 ───────────────────────────────────────────────────────────────────────────────────────
+
+    Test timeout of 300000ms exceeded.
+
+    Error: page.click: Test timeout of 300000ms exceeded.
+    Call log:
+      - waiting for locator('ul  li:nth-child(5)  a  span')
+
+
+      12 |
+      13 |     test('Go to recruitment page ',async ({ page }) => {
+    > 14 |         await page.click('ul  li:nth-child(5)  a  span');  
+         |                    ^
+      15 |         await page.click('nav > ul > li:nth-child(2) > a');
+      16 |         await page.click('div.orangehrm-header-container button');
+      17 |     });
+
+        at /Users/soumabha/dev-2/orange-hrm/orangeHrm/src/spec/vacancy-page.spec.ts:14:20
+]]>
+</failure>
+<system-out>
+<![CDATA[
+[[ATTACHMENT|../test-results/vacancy-page-Login-page-Go-to-recruitment-page--chromium-retry1/trace.zip]]
+]]>
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>

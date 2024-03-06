@@ -2,6 +2,7 @@ declare global {
     namespace NodeJS {
       interface ProcessEnv {
         uiURl: string;
+        CI: string;
       }
     }
   }
