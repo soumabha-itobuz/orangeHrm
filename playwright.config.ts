@@ -18,7 +18,7 @@ export default defineConfig({
   testDir: './src/spec',
   /* Run tests in files in parallel */
   fullyParallel: true,
-  timeout: 5 * 60 * 1000,
+  timeout: 30 * 1000,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
@@ -47,6 +47,17 @@ export default defineConfig({
     {
       name: 'chromium',
       use: { ...devices['Desktop Chrome'], headless: CiMode },
+    },
+    { name: 'setup', testMatch: '' },
+
+    {
+      name: 'chromium',
+      use: {
+        ...devices['Desktop Chrome'],
+        // Use prepared auth state.
+        storageState: 'playwright/.auth/user.json',
+      },
+      // dependencies: ['setup'],
     },
 
     // {

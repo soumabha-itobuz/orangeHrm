@@ -1,13 +1,13 @@
 import { test, expect, type Page } from '@playwright/test';
 import { login } from '../lib/login';
 
-test.describe('Login page', () => {
+test.describe('Add vacancy', () => {
    
     test('Log in to the application', async ({ page }) => {
       await page.goto(process.env.uiURl);
       await login(page, process.env.userName, process.env.password);
-      //await page.locator('.oxd-text.oxd-text--h6').waitFor();
       //test.setTimeout(300000);
+      await page.waitForURL('https://opensource-demo.orangehrmlive.com/web/index.php/dashboard/index');
     });
 
     test('Go to recruitment page ',async ({ page }) => {
