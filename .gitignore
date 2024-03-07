@@ -9,4 +9,5 @@ node_modules
 /playwright-report/
 /blob-report/
 /playwright/.cache/
-\nplaywright/.auth
+playwright/.auth
+results
