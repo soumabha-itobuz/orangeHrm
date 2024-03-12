@@ -1,12 +1,12 @@
-<testsuites id="" name="" tests="3" failures="1" skipped="0" errors="0" time="1794.893257">
-<testsuite name="login-page.spec.ts" timestamp="2024-03-06T13:19:11.639Z" hostname="chromium" tests="1" failures="0" skipped="0" time="13.969" errors="0">
-<testcase name="Login page › Log in to the application" classname="login-page.spec.ts" time="13.969">
+<testsuites id="" name="" tests="3" failures="1" skipped="0" errors="0" time="929.7317170000001">
+<testsuite name="login-page.spec.ts" timestamp="2024-03-12T12:13:39.548Z" hostname="chromium" tests="1" failures="0" skipped="0" time="14.652" errors="0">
+<testcase name="Login page › Log in to the application" classname="login-page.spec.ts" time="14.652">
 </testcase>
 </testsuite>
-<testsuite name="vacancy-page.spec.ts" timestamp="2024-03-06T13:19:11.639Z" hostname="chromium" tests="2" failures="1" skipped="0" time="1776.789" errors="0">
-<testcase name="Login page › Log in to the application" classname="vacancy-page.spec.ts" time="16.275">
+<testsuite name="vacancy-page.spec.ts" timestamp="2024-03-12T12:13:39.548Z" hostname="chromium" tests="2" failures="1" skipped="0" time="912.714" errors="0">
+<testcase name="Login page › Log in to the application" classname="vacancy-page.spec.ts" time="12.715">
 </testcase>
-<testcase name="Login page › Go to recruitment page " classname="vacancy-page.spec.ts" time="1760.514">
+<testcase name="Login page › Go to recruitment page " classname="vacancy-page.spec.ts" time="899.999">
 <failure message="vacancy-page.spec.ts:13:9 Go to recruitment page " type="FAILURE">
 <![CDATA[  [chromium] › vacancy-page.spec.ts:13:9 › Login page › Go to recruitment page  ────────────────────
 
@@ -25,7 +25,7 @@
       16 |         await page.click('div.orangehrm-header-container button');
       17 |     });
 
-        at /Users/soumabha/dev-2/orange-hrm/orangeHrm/src/spec/vacancy-page.spec.ts:14:20
+        at /Volumes/dev/orangeHrm/orangeHrm/src/spec/vacancy-page.spec.ts:14:20
 
     Retry #1 ───────────────────────────────────────────────────────────────────────────────────────
 
@@ -44,7 +44,7 @@
       16 |         await page.click('div.orangehrm-header-container button');
       17 |     });
 
-        at /Users/soumabha/dev-2/orange-hrm/orangeHrm/src/spec/vacancy-page.spec.ts:14:20
+        at /Volumes/dev/orangeHrm/orangeHrm/src/spec/vacancy-page.spec.ts:14:20
 
     attachment #1: trace (application/zip) ─────────────────────────────────────────────────────────
     test-results/vacancy-page-Login-page-Go-to-recruitment-page--chromium-retry1/trace.zip
@@ -71,7 +71,7 @@
       16 |         await page.click('div.orangehrm-header-container button');
       17 |     });
 
-        at /Users/soumabha/dev-2/orange-hrm/orangeHrm/src/spec/vacancy-page.spec.ts:14:20
+        at /Volumes/dev/orangeHrm/orangeHrm/src/spec/vacancy-page.spec.ts:14:20
 ]]>
 </failure>
 <system-out>
