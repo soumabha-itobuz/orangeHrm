@@ -2,7 +2,6 @@
   "name": "playwright-practice",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "start": "npx playwright test",
     "start:ui": "npx playwright test --ui"
