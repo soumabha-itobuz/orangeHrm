@@ -1,6 +1,5 @@
 import { test } from '@playwright/test';
 import { login } from '../lib/login';
-import { testConfig } from '../lib/test-config';
 
 test.describe('Add vacancy', () => {
   let page;
@@ -21,4 +20,8 @@ test.describe('Add vacancy', () => {
       // Add assertions or further actions
   });
 
+  test.afterEach(async () => {
+      // Close the page after each test
+      await page.close();
+  });
 });
