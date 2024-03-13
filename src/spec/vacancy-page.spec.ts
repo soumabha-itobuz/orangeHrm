@@ -1,14 +1,20 @@
 import { test } from '@playwright/test';
 import { login } from '../lib/login';
 
-let page;
+
 
 test.describe('Add vacancy', () => {
-  test('login', async ({ browser }) => {
-    const token = ''; // Define token here or fetch it from somewhere
+  let page;
+  test.beforeAll(async ({ browser}) => {
     page = await browser.newPage();
+  })
+
+  test.afterAll(() => {
+    page = null;
+  })
+
+  test('login', async () => {
     await login(page, process.env.userName, process.env.password);
-    await page.evaluate(token => localStorage.setItem('Identity.States.token', token), token);
   });
 
   test('Go to recruitment page', async () => {
