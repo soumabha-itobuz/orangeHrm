@@ -1,4 +1,4 @@
-import { test, type Page } from "@playwright/test";
+import { test } from "@playwright/test";
 import { login } from "../lib/login";
 
 test.describe("Login page", () => {
