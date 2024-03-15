@@ -1,6 +1,20 @@
 import { expect, test } from "@playwright/test";
 import { login } from "../../lib/login";
 
+const locators = {
+  pageHeading: ".oxd-topbar div div span h6",
+  leaveOption: "ul  li:nth-child(3)  a  span",
+  myLeaveHeading: "nav > ul > li:nth-child(2) > a",
+  fromDate:
+    ".oxd-form-row .oxd-grid-4 > div:nth-child(1) > div div:nth-child(2) > div > div > input",
+  toDate:
+    ".oxd-form-row .oxd-grid-4 > div:nth-child(2) > div div:nth-child(2) > div > div > input",
+  leaveType:
+    ".oxd-form-row .oxd-grid-4 > div:nth-child(4) > div > div:nth-child(2) > div > div > div:nth-child(1)",
+  searchButton: '[type="submit"]',
+  recordHeading: ".orangehrm-paper-container > div:nth-child(2) > div > span",
+};
+
 test.describe("My Leaves", () => {
   let page;
   test.beforeAll(async ({ browser }) => {
@@ -13,33 +27,19 @@ test.describe("My Leaves", () => {
 
   test("Log in to the application", async () => {
     await login(page, process.env.userName, process.env.password);
-    await expect(page.locator(".oxd-topbar div div span h6")).toHaveText(
-      "Dashboard"
-    );
+    await expect(page.locator(locators.pageHeading)).toHaveText("Dashboard");
   });
 
   test("Go to My Leave page", async () => {
-    await page.click("ul  li:nth-child(3)  a  span");
-    await page.click("nav > ul > li:nth-child(2) > a");
-    await page.click(".oxd-select-text");
-    await page
-      .locator(
-        ".oxd-form-row .oxd-grid-4 > div:nth-child(1) > div div:nth-child(2) > div > div > input"
-      )
-      .fill("2024-01-01");
-    await page
-      .locator(
-        ".oxd-form-row .oxd-grid-4 > div:nth-child(2) > div div:nth-child(2) > div > div > input"
-      )
-      .fill("2024-31-12");
-    await page.type(
-      ".oxd-form-row .oxd-grid-4 > div:nth-child(4) > div > div:nth-child(2) > div > div > div:nth-child(1)",
-      "US - Bereavement"
-    );
-    await page.click('[type="submit"]');
+    await page.click(locators.leaveOption);
+    await page.click(locators.myLeaveHeading);
+    await page.locator(locators.fromDate).fill("2024-01-01");
+    await page.locator(locators.toDate).fill("2024-31-12");
+    await page.type(locators.leaveType, "US - Bereavement");
+    await page.click(locators.searchButton);
     await page.waitForLoadState();
-    await expect(
-      page.locator(".orangehrm-paper-container > div:nth-child(2) > div > span")
-    ).toHaveText("No Records Found");
+    await expect(page.locator(locators.recordHeading)).toHaveText(
+      "No Records Found"
+    );
   });
 });
