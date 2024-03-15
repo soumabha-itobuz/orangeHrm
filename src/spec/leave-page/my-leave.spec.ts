@@ -38,8 +38,8 @@ test.describe("My Leaves", () => {
     );
     await page.click('[type="submit"]');
     await page.waitForLoadState();
-    await expect(page.locator(".orangehrm-header-container > span")).toHaveText(
-      "No Records Found"
-    );
+    await expect(
+      page.locator(".orangehrm-paper-container > div:nth-child(2) > div > span")
+    ).toHaveText("No Records Found");
   });
 });

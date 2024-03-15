@@ -26,10 +26,12 @@ test.describe("Leave / Employee Entitlement", () => {
       .locator(
         ".oxd-form-row > div > div:nth-child(1) > div >  div:nth-child(2) > div > div > input"
       )
-      .fill("Tiffany  Donovan");
+      .fill("Eric130421  cotiangco");
     await page.type(
       ".oxd-form-row > div > div:nth-child(2) > div >  div:nth-child(2) > div > div > div:nth-child(1)",
       "CAN - Bereavement"
     );
+    await page.click('[type="submit"]');
+    await page.waitForLoadState();
   });
 });
