@@ -1,5 +1,7 @@
 import { expect, test } from "@playwright/test";
 import { login } from "../../lib/login";
+import * as fs from "fs";
+import * as path from "path";
 
 const locators = {
   pageHeading: ".oxd-topbar div div span h6",
@@ -14,12 +16,79 @@ const locators = {
 };
 
 test.describe("Leave / Employee Entitlement", () => {
+  let logs = [];
   let page;
+
   test.beforeAll(async ({ browser }) => {
     page = await browser.newPage();
   });
 
+  test.beforeEach(async () => {
+    page.on("pageerror", (error) => {
+      logs.push(`ERROR - ${error.message}`);
+    });
+    await page.route("**", async (route) => route.continue());
+    page.on("request", (request) => {
+      if (
+        (request.method() == "POST" || request.method() == "PUT") &&
+        (request.resourceType() === "xhr" || request.resourceType() === "fetch")
+      ) {
+        logs.push(
+          `REQUEST - ${request
+            .method()
+            .padEnd(7)} - Request Payload - ${JSON.stringify(
+            request.postData()
+          )}\n`
+        );
+      }
+    });
+
+    page.on("response", async (response) => {
+      let responseBody;
+
+      if (
+        response.request().resourceType() === "xhr" ||
+        response.request().resourceType() === "fetch"
+      ) {
+        if (response.status() >= 300 && response.status() < 400) {
+          logs.push(
+            `[Redirect Response] ${response
+              .request()
+              .method()
+              .padEnd(8)} ${response
+              .request()
+              .url()} - Status: ${response.status()}`
+          );
+          return;
+        }
+        const contentType = response.headers()["content-type"];
+
+        if (contentType && contentType.includes("application/json")) {
+          responseBody = await response.json();
+        } else if (contentType && contentType.includes("text")) {
+          responseBody = await response.text();
+        } else {
+          responseBody = "[Response body cannot be parsed]";
+        }
+        logs.push(
+          `RESPONSE - ${response.status()} ${response
+            .request()
+            .method()
+            .padEnd(8)} \n - Response body - ${JSON.stringify(
+            responseBody
+          ).padEnd(1000)}\n`
+        );
+      }
+    });
+  });
+
   test.afterAll(() => {
+    const logFilePath = path.join(
+      "src/spec/leave-page/",
+      "employee-entitlement.txt"
+    );
+    fs.writeFileSync(logFilePath, logs.join("\n"), "utf8");
+    logs = [];
     page = null;
   });
 
