@@ -22,6 +22,10 @@ export async function login(page: Page, userName, password) {
 }
 
 export async function everShopLogin(page: Page, ) {
-  
+  await page.goto('/account/login')
+  await page.fill(locators.locator.evershopUser, process.env.everUser);
+  await page.fill(locators.locator.everPassword, process.env.everPassword);
+  await page.click('[type="submit"]');
+  await page.waitForLoadState();
   
 }
