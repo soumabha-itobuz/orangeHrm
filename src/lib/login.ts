@@ -6,6 +6,8 @@ export const locators = {
   locator: {
     username: '[name="username"]',
     password: '[name="password"]',
+    evershopUser: '[name="email"]',
+    everPassword: '[name="password"]',
   },
 };
 
@@ -17,4 +19,9 @@ export async function login(page: Page, userName, password) {
   await page.click('[type="submit"]');
   await page.waitForLoadState();
   await page.context().storageState({ path: testConfig.authFile });
+}
+
+export async function everShopLogin(page: Page, ) {
+  
+  
 }
