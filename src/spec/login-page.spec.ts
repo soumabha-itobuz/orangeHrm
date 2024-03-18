@@ -1,6 +1,5 @@
-import { test } from '@playwright/test';
-import { login } from '../lib/login';
-
+import { test } from "@playwright/test";
+import { login } from "../lib/login";
 
 test.describe("Login page", () => {
   test("Log in to the application", async ({ page }) => {
