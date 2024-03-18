@@ -23,8 +23,8 @@ export async function login(page: Page, userName, password) {
 
 export async function everShopLogin(page: Page, userName, password) {
   await page.click('div:nth-child(3) > a > svg > path')
-  await page.fill(locators.locator.evershopUser, userName);
-  await page.fill(locators.locator.everPassword, password);
+  await page.fill(locators.evershopUser, userName);
+  await page.fill(locators.everPassword, password);
   await page.click('[type="submit"]');
   await page.waitForLoadState();
   
