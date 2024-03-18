@@ -1,5 +1,5 @@
 import { expect, test } from "@playwright/test";
-import { login } from "../../lib/login";
+import { login } from "../../../lib/login";
 import * as fs from "fs";
 import * as path from "path";
 
@@ -27,7 +27,7 @@ test.describe("Leave / Employee Entitlement", () => {
     page.on("pageerror", (error) => {
       logs.push(`ERROR - ${error.message}`);
     });
-    await page.route("**", async (route) => route.continue());
+
     page.on("request", (request) => {
       if (
         (request.method() == "POST" || request.method() == "PUT") &&

@@ -1,5 +1,5 @@
 import { expect, test } from "@playwright/test";
-import { login } from "../../lib/login";
+import { login } from "../../../lib/login";
 
 const locators = {
   pageHeading: ".oxd-topbar div div span h6",
