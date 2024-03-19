@@ -1,4 +1,4 @@
-import { test } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 import { login, everShopLogin } from '../lib/login';
 
 // import * as fs from 'fs';
@@ -20,5 +20,7 @@ test.describe("Login page", () => {
   test("Log in to EverShop ", async ({page}) => {
     await page.goto(process.env.evershopUrl);
     await everShopLogin(page, process.env.everUser, process.env.everPassword);
+    await page.goto('/account');
+    await expect(page.url()).toMatch('/account');
   })
 });
