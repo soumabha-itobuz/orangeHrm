@@ -34,17 +34,11 @@ test.describe("Add to cart testing", () => {
         await page.click('div:nth-child(1) > div.product-thumbnail-listing > a > img');
         const locator2 = page.textContent('[class="product-single-name"]');
         if(locator===locator2){
-            console.log('Text value match');
-        } else{
-            console.log('Text values do not match');
-        }
-        await page.click('div.variant.variant-container.grid.grid-cols-1.gap-1.mt-2 > div:nth-child(1) > ul > li:nth-child(1) > a');
+            await page.click('div.variant.variant-container.grid.grid-cols-1.gap-1.mt-2 > div:nth-child(1) > ul > li:nth-child(1) > a');
         await page.click('div.variant.variant-container.grid.grid-cols-1.gap-1.mt-2 > div:nth-child(2) > ul > li:nth-child(1) > a');
         await page.click('[type="button"]');
         setTimeout(30000);
         await page.click('.mini-cart-icon');
-        if(locator===locator2){
-            console.log('Text value match');
         } else{
             console.log('Text values do not match');
         }
