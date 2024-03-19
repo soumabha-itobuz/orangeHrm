@@ -30,6 +30,7 @@ test.describe("Search testing", () => {
   
     test("Search functionality testing", async () => {
         await page.goto('https://demo.evershop.io/');
+        setTimeout(30000);
         let value = await page.locator('div:nth-child(1) > div.product-name.product-list-name.mt-1.mb-025 > a > span');
         console.log(await value.innerText());
         await page.click('.search-icon');
