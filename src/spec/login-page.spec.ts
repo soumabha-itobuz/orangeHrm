@@ -1,8 +1,5 @@
-import { expect, test } from '@playwright/test';
-import { login, everShopLogin } from '../lib/login';
-
-// import * as fs from 'fs';
-// import * as path from 'path';
+import { expect, test } from "@playwright/test";
+import { login,everShopLogin } from "../lib/login";
 
 test.describe("Login page", () => {
   // test("Log in to the application", async ({ page }) => {
