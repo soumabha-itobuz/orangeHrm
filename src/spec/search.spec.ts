@@ -32,12 +32,11 @@ test.describe("Search testing", () => {
         await page.goto('https://demo.evershop.io/');
         setTimeout(30000);
         let value = await page.locator('div:nth-child(1) > div.product-name.product-list-name.mt-1.mb-025 > a > span');
-        console.log(await value.innerText());
         await page.click('.search-icon');
-        const inputField = await page.waitForSelector('.search-icon');
-        await inputField.fill(await value.innerText());
+        await page.locator('[placeholder="Search"]').fill(await value.innerText());
         await page.keyboard.press('Enter');
       })
+
 
   });
   
