@@ -5,6 +5,8 @@ import { deleteAuthFile } from "./deleteAuthFile";
 const locators = {
   username: '[name="username"]',
   password: '[name="password"]',
+    evershopUser: '[name="email"]',
+    everPassword: '[name="password"]',
   submitButton: '[type="submit"]',
 };
 
@@ -17,4 +19,13 @@ export async function login(page: Page, userName, password) {
   await page.click(locators.submitButton);
   await page.waitForLoadState();
   await page.context().storageState({ path: testConfig.authFile });
+}
+
+export async function everShopLogin(page: Page, userName, password) {
+  await page.click('div:nth-child(3) > a > svg > path')
+  await page.fill(locators.evershopUser, userName);
+  await page.fill(locators.everPassword, password);
+  await page.click('[type="submit"]');
+  await page.waitForLoadState();
+  
 }
